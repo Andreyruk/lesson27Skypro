@@ -79,7 +79,7 @@ public class IngredientController {
                     @ApiResponse(responseCode = "200", description = "Запись удалена")})
 //    или так
     @Parameters(value = {@Parameter(name = "id", example = "1")})
-    ResponseEntity<Ingredients> removeIngredients(@PathVariable int id){
+    public ResponseEntity<Ingredients> removeIngredients(@PathVariable int id){
         return ResponseEntity.ok(ingredientService.removeIngredients(id));
     }
 

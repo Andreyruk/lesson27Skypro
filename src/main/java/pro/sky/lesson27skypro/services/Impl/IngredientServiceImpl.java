@@ -1,5 +1,7 @@
 package pro.sky.lesson27skypro.services.Impl;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.webjars.NotFoundException;
 import pro.sky.lesson27skypro.model.Ingredients;
@@ -10,16 +12,18 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
+@AllArgsConstructor
+@RequiredArgsConstructor
 public class IngredientServiceImpl implements IngredientService {
     private Map<Integer, Ingredients> ingredientsMap = new HashMap<>();
+    private static int id = 0;
 
     @Override
     public int addIngredient(Ingredients ingredient) {
 //        if (ingredientsMap.containsValue(ingredient)){
 //            throw new IngredientsExistsException();
 //        }
-        int id = ingredientsMap.size() + 1;
-        ingredientsMap.put(id, ingredient);
+        ingredientsMap.put(id++, ingredient);
         return id;
     }
 
